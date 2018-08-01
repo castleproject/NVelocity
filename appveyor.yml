@@ -1,0 +1,6 @@
+image: Visual Studio 2017
+
+build:
+  verbosity: minimal
+  project: NVelocity.sln
+  publish_nuget: false
