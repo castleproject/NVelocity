@@ -1,0 +1,9 @@
+image: Visual Studio 2017
+
+before_build:
+  - nuget restore
+
+build:
+  verbosity: minimal
+  project: NVelocity.sln
+  publish_nuget: false
