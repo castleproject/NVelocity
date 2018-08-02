@@ -27,7 +27,7 @@ namespace NVelocity
 		private VelocityEngine velocityEngine;
 		private VelocityContext context;
 
-		[TestFixtureSetUp]
+		[SetUp]
 		public void BeforeAnyTest()
 		{
 			velocityEngine = new VelocityEngine();

@@ -69,7 +69,7 @@ leq
 		private VelocityEngine ve;
 		private VelocityContext ctx;
 
-		[TestFixtureSetUp]
+		[SetUp]
 		public void SetUp()
 		{
 			ve = new VelocityEngine();
