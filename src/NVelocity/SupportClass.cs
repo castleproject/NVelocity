@@ -17,7 +17,6 @@ namespace NVelocity
 	using System;
 	using System.Collections;
 	using System.Data;
-	using System.Data.OleDb;
 	using System.Globalization;
 	using System.IO;
 	using System.Reflection;
