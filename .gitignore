@@ -2,6 +2,7 @@
 *.suo
 *.user
 .vs
+.vscode
 _ReSharper*/
 *.csproj.ReSharper
 .idea

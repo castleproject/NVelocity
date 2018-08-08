@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\buildscripts\common.props"></Import>
+
   <PropertyGroup>
     <PackageId>NVelocity</PackageId>
-    <BuildVersion>0.0.0</BuildVersion>
-    <BuildVersion Condition="'$(APPVEYOR_BUILD_VERSION)'!=''">$(APPVEYOR_BUILD_VERSION)</BuildVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageOutputPath>../../build/</PackageOutputPath>
     <AssemblyName>NVelocity</AssemblyName>

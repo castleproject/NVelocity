@@ -15,9 +15,8 @@ build_script:
   - dotnet build ./NVelocity.sln -c Release 
 
 test_script:
-  - dotnet test ./src/NVelocity.Tests
+  - dotnet test ./src/NVelocity.Tests --no-build -c Release
 
 artifacts:
   - path: build/*.nupkg
     name: nvelocity
-    
