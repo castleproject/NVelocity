@@ -2,8 +2,10 @@
 *.suo
 *.user
 .vs
+.vscode
 _ReSharper*/
 *.csproj.ReSharper
+.idea
 
 # Build output
 build/

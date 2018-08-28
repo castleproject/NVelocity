@@ -1,0 +1,28 @@
+<Project>
+
+	<PropertyGroup>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/castleproject/NVelocity</RepositoryUrl>
+		<BuildVersion>0.0.0</BuildVersion>
+		<BuildVersion Condition="'$(APPVEYOR_BUILD_VERSION)'!=''">$(APPVEYOR_BUILD_VERSION)</BuildVersion>
+		<BuildVersionMajor>$(BuildVersion.Split('.')[0])</BuildVersionMajor>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Product>Castle Core</Product>
+		<Authors>Castle Project Contributors</Authors>
+		<PackageVersion>$(BuildVersion)</PackageVersion>
+		<FileVersion>$(BuildVersion)</FileVersion>
+		<VersionPrefix>$(BuildVersion)</VersionPrefix>
+		<AssemblyVersion>$(BuildVersionMajor).0.0</AssemblyVersion>
+		<PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
+		<PackageProjectUrl>http://www.castleproject.org/</PackageProjectUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageVersion>$(BuildVersion)</PackageVersion>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>false</IncludeSource>
+		<CurrentYear>$([System.DateTime]::Now.ToString("yyyy"))</CurrentYear>
+		<Copyright>Copyright (c) 2004-$(CurrentYear) Castle Project - http://www.castleproject.org/</Copyright>
+	</PropertyGroup>
+
+</Project>
