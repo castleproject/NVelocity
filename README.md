@@ -1,1 +1,1 @@
-More information about NVelocity can be found at http://www.castleproject.org/
+More information about NVelocity can be found at [docs/README.md](docs/README.md)
