@@ -1,3 +1,7 @@
+1.2.0 (2018-12-10)
+==================
+- Applies Jonathon Rossi's update to target .NETStandard 2.0
+
 1.1.1 (2010-10-12)
 ==================
 - Included the NET40 (CP) binaries on the release package
