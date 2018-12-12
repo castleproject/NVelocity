@@ -283,7 +283,7 @@ namespace NVelocity.Test
 			Assert.AreEqual("Hello Cort $lastName", sw.ToString());
 
 			// create a context based on a case insensitive hashtable
-			Hashtable ht = new Hashtable(StringComparer.CurrentCultureIgnoreCase);
+			Hashtable ht = new Hashtable(StringComparer.OrdinalIgnoreCase);
 			ht.Add("firstName", "Cort");
 			ht.Add("LastName", "Schaefer");
 			c = new VelocityContext(ht);
