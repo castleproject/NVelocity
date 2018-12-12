@@ -1,9 +1,15 @@
-1.1.1 (2010-10-12)
-==================
+# NVelocity Changelog
+
+## Unreleased
+
+- Upgraded project to .NET Standard 2.0 (@phillip-haydon, #5)
+
+## 1.1.1 (2010-10-12)
+
 - Included the NET40 (CP) binaries on the release package
 
-1.1.0 (2009-09-28)
-==================
+## 1.1.0 (2009-09-28)
+
 - Applied Rasmus Toftdahl Olesen's patch fixing NVELOCITY-ISSUE-24
   "Improved enum support"
 
