@@ -169,6 +169,25 @@ namespace NVelocity.Runtime.Directive
 
 		private Template GetTemplate(String arg, String encoding, IInternalContextAdapter context)
 		{
+			if (!arg.Contains(".html"))
+				arg += ".html";
+
+			var path = runtimeServices.GetString(RuntimeConstants.FILE_RESOURCE_LOADER_PATH);
+			var file = Path.Combine(path, arg);
+			
+			// find in root first
+			if (!File.Exists(file))
+			{
+				file = Path.Combine(path, "parse", arg);
+				if (!File.Exists(file))
+					throw new ResourceNotFoundException($"unable to find resource '{arg}' in any resource loader.");
+				else
+				{
+					arg = Path.Combine("parse", arg);
+				}
+			}
+
+
 			Template result;
 			try
 			{
@@ -176,6 +195,7 @@ namespace NVelocity.Runtime.Directive
 			}
 			catch(ResourceNotFoundException)
 			{
+
 				// the arg wasn't found.  Note it and throw
 				runtimeServices.Error(
 					string.Format("#parse(): cannot find template '{0}', called from template {1} at ({2}, {3})", arg,
