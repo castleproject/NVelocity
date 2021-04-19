@@ -231,6 +231,7 @@ namespace NVelocity.Runtime.Parser.Node
 
 			for(i = 0; i < k; i++)
 			{
+				var a = GetChild(i);
 				GetChild(i).Render(context, writer);
 			}
 
