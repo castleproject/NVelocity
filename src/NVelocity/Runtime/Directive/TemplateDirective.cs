@@ -1,14 +1,25 @@
-﻿using NVelocity.Context;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
+using NVelocity.Context;
 using NVelocity.Runtime.Parser.Node;
+using NVelocity.Service;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NVelocity.Runtime.Directive
 {
 	public class TemplateDirective : Directive
 	{
+		private readonly TemplateProcess _templateProcess;
+
+		public TemplateDirective()
+		{
+			_templateProcess = new TemplateProcess();
+		}
+
 		public override string Name { get => "template"; set => throw new NotSupportedException(); }
 
 		public override DirectiveType Type { get => DirectiveType.LINE; }
@@ -17,18 +28,27 @@ namespace NVelocity.Runtime.Directive
 		{
 			var myWriter = new StringWriter();
 
-			var html = node.GetChild(0).Value(context).ToString();
+			var child = node?.GetChild(0);
 
-			var template = new StringTemplate(html);
+			if(child != null)
+			{
+				var name = child.Value(context).ToString();
 
-			template.runtimeServices = runtimeServices;
+				var html = _templateProcess.GetTemplate(name).Result;
 
-			if(template.Process())
-				((SimpleNode)template.Data).Render(context, myWriter);
+				var template = new StringTemplate(html);
 
-			writer.WriteLine(myWriter.ToString());
+				template.runtimeServices = runtimeServices;
 
-			return true;
+				if (template.Process())
+					((SimpleNode)template.Data).Render(context, myWriter);
+
+				writer.WriteLine(myWriter.ToString());
+
+				return true;
+			}
+
+			return false;
 		}
 	}
 }
